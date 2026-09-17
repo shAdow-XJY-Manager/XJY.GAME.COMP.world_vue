@@ -1,1 +1,0 @@
-<view class="flex-container data-v-1cf27b2a"><image src="/static/background/background.png" class="background-image data-v-1cf27b2a"></image><view wx:for="{{a}}" wx:for-item="item" wx:key="c" class="flex-item data-v-1cf27b2a"><image src="{{item.a}}" class="item-image data-v-1cf27b2a"/><view class="item-title data-v-1cf27b2a">{{item.b}}</view></view></view>
