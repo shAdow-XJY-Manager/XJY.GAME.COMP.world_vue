@@ -1,14 +1,324 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#111315"><title>频率密室 · 兼容入口</title>
-<style>
-:root{color-scheme:dark;--bg:#111315;--surface:#1b1e20;--text:#f4f2e9;--muted:#adb1a9;--accent:#d6ef36;--amber:#ffb23f;--border:#41484b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,sans-serif}header,main,footer{max-width:1120px;margin:auto;padding:24px}header{border-bottom:1px solid var(--border);font-size:20px;font-weight:700}a{color:var(--accent)}a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}.hero{min-height:340px;padding:32px;position:relative;isolation:isolate;border:1px solid var(--border);border-radius:12px;overflow:hidden}.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}.hero:before{content:"";position:absolute;inset:0;background:#111315b8;z-index:-1}h1{font-size:48px;line-height:1.2;color:var(--accent);margin:16px 0}h2{font-size:24px}p{max-width:620px}.eyebrow{font-size:14px;color:var(--muted)}.actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}.button{display:inline-flex;align-items:center;min-height:48px;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:700;background:var(--amber);color:var(--bg)}.button:hover{filter:brightness(1.07)}.secondary:hover{background:var(--elevated,#25292c)}.secondary{background:var(--surface);border:1px solid var(--border);color:var(--text)}.panel{padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-top:24px}footer{color:var(--muted);font-size:14px}@media(max-width:700px){header,main,footer{padding:16px}.hero{padding:24px}h1{font-size:36px}h1 span{display:block}.button{width:100%;justify-content:center}}
-</style>
-</head><body>
-<header>频率密室</header>
-<main><section class="hero"><img src="assets/frequency-courtyard.webp" alt="黑色金属信号庭院，边缘点亮酸黄线路与琥珀仪器"><div class="eyebrow">FREQUENCY / ROOM</div><h1><span>接通信号，</span><span>找到出口。</span></h1><p>三个单屏房间，三枚收集标记。观察 A 与 B 的顺序，打开信号门，在短短几分钟里完成一次探索。</p><div class="actions"><a class="button" href="/XJY.GAME.COMP.world_flutter/">进入频率密室</a><a class="button secondary" href="/XJY.GAME.COMP.gameCenter/">返回游戏中心</a></div></section>
-<section class="panel"><h2>开始之前</h2><p>点击地图自动寻路，或使用 WASD 和屏幕方向键移动。走到节点上按 E 或“交互”，按提示顺序接通信号。找到三枚标记后，前往右上角出口。</p><p>Esc 暂停，离开标签页自动暂停。进度与通关成绩保存在同一站点、当前设备上；声音默认关闭。</p></section>
-<section class="panel"><h2>一个玩法，一个入口</h2><p>这里保留旧世界页面的访问入口，实际探索在频率密室中完成。游戏中心负责发现和继续对局，让你可以随时回来。</p></section></main><footer>本页为兼容入口。若游戏未能打开，请返回游戏中心；未完成的对局仍保存在当前设备。</footer>
-</body></html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#111315" />
+    <meta
+      name="description"
+      content="频率密室兼容入口。进入三个单屏房间，接通信号，找到出口。"
+    />
+    <title>频率密室 · 兼容入口</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #111315;
+        --surface: #191d1f;
+        --text: #f4f2e9;
+        --muted: #b0b8b4;
+        --accent: #d6ef36;
+        --amber: #ffb23f;
+        --border: #343c3f;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font:
+          15px/1.7 system-ui,
+          -apple-system,
+          "PingFang SC",
+          sans-serif;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      a:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 4px;
+      }
+      header,
+      main,
+      footer {
+        max-width: 1040px;
+        margin: auto;
+        padding: 24px 32px;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--border);
+        gap: 20px;
+      }
+      .brand {
+        font-size: 18px;
+        font-weight: 750;
+      }
+      .brand small {
+        display: block;
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        color: var(--muted);
+        font-weight: 400;
+      }
+      header nav {
+        display: flex;
+        gap: 20px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      header nav a {
+        padding: 10px 0;
+      }
+      header nav a:hover {
+        color: var(--accent);
+      }
+      main {
+        padding-top: 38px;
+      }
+      .eyebrow {
+        color: var(--accent);
+        font-size: 11px;
+        letter-spacing: 2px;
+        margin: 0 0 12px;
+      }
+      h1 {
+        font-size: 36px;
+        letter-spacing: -1px;
+        line-height: 1.25;
+        margin: 0 0 16px;
+      }
+      h2 {
+        font-size: 19px;
+        line-height: 1.4;
+        margin: 0 0 12px;
+      }
+      p {
+        margin: 0 0 18px;
+      }
+      .intro {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 240px;
+        gap: 36px;
+        align-items: center;
+        padding-bottom: 32px;
+        border-bottom: 1px solid var(--border);
+      }
+      .intro img {
+        width: 240px;
+        height: 208px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+      }
+      .description {
+        color: var(--muted);
+        max-width: 560px;
+      }
+      .metadata {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 12px;
+        margin: 18px 0;
+      }
+      .actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 10px 20px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: var(--surface);
+        font-weight: 650;
+      }
+      .primary {
+        background: var(--amber);
+        border-color: var(--amber);
+        color: var(--bg);
+      }
+      .button:hover {
+        filter: brightness(1.1);
+        border-color: var(--accent);
+      }
+      .guide {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin: 28px 0;
+      }
+      .panel {
+        padding: 24px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+      }
+      .panel p {
+        color: var(--muted);
+        font-size: 14px;
+        margin-bottom: 0;
+      }
+      .step {
+        color: var(--accent);
+        font-size: 11px;
+        letter-spacing: 1px;
+        margin-bottom: 10px !important;
+      }
+      .controls {
+        display: grid;
+        grid-template-columns: 90px 1fr;
+        gap: 10px 16px;
+        font-size: 13px;
+        margin: 0;
+      }
+      .controls dt {
+        color: var(--muted);
+      }
+      .controls dd {
+        margin: 0;
+      }
+      .notice {
+        color: var(--muted);
+        font-size: 13px;
+        border-top: 1px solid var(--border);
+        padding-top: 20px;
+      }
+      .notice a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      footer {
+        font-size: 12px;
+        color: var(--muted);
+        padding-top: 12px;
+        padding-bottom: 32px;
+      }
+      @media (max-width: 680px) {
+        header,
+        main,
+        footer {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        header {
+          padding-top: 18px;
+          padding-bottom: 18px;
+        }
+        header nav {
+          gap: 14px;
+          font-size: 12px;
+        }
+        .intro {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+        .intro img {
+          width: 100%;
+          height: 160px;
+          grid-row: 2;
+          object-position: center 44%;
+        }
+        h1 {
+          font-size: 30px;
+        }
+        .guide {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+        .panel {
+          padding: 20px;
+        }
+        .actions a {
+          flex: 1;
+        }
+        .metadata {
+          gap: 14px;
+        }
+        main {
+          padding-top: 28px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/">频率工作室<small>FREQUENCY / GAMES</small></a>
+      <nav aria-label="站点导航">
+        <a href="/XJY.GAME.COMP.gameCenter/">游戏中心</a><a href="/">工作室</a>
+      </nav>
+    </header>
+    <main>
+      <section class="intro">
+        <div>
+          <p class="eyebrow">FREQUENCY ROOM</p>
+          <h1>接通信号，找到出口。</h1>
+          <p class="description">
+            三个单屏房间，三枚收集标记。观察节点的顺序，打开信号门，完成一次专注的小探索。
+          </p>
+          <div class="metadata">
+            <span>单人探索</span><span>键盘 / 触控</span
+            ><span>本机保存进度</span>
+          </div>
+          <div class="actions">
+            <a class="button primary" href="/XJY.GAME.COMP.world_flutter/"
+              >进入频率密室</a
+            ><a class="button" href="/XJY.GAME.COMP.gameCenter/"
+              >返回游戏中心</a
+            >
+          </div>
+        </div>
+        <img
+          src="assets/frequency-courtyard.webp"
+          alt="黑色金属信号庭院，酸黄线路与琥珀仪器照亮探索路径"
+        />
+      </section>
+      <div class="guide">
+        <section class="panel">
+          <p class="step">01 / QUICK START</p>
+          <h2>从第一个节点开始</h2>
+          <p>
+            观察 A 与 B
+            的顺序，走近节点并交互。找到三枚标记后，前往右上角出口。无需账号，声音默认关闭。
+          </p>
+        </section>
+        <section class="panel">
+          <p class="step">02 / CONTROLS</p>
+          <h2>操作就在手边</h2>
+          <dl class="controls">
+            <dt>移动</dt>
+            <dd>点击地图 / WASD / 屏幕方向键</dd>
+            <dt>交互</dt>
+            <dd>E / 屏幕“交互”按钮</dd>
+            <dt>暂停</dt>
+            <dd>Esc；离开标签页自动暂停</dd>
+          </dl>
+        </section>
+      </div>
+      <p class="notice">
+        这里保留旧世界页面的访问入口。游戏在频率密室中继续；如果暂时打不开，可<a
+          href="/XJY.GAME.COMP.gameCenter/"
+          >返回游戏中心</a
+        >。进度与成绩保存在当前站点、当前设备。
+      </p>
+    </main>
+    <footer>频率密室 · 兼容入口</footer>
+  </body>
+</html>
